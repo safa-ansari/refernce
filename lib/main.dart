@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:C:\flutter\weatherapp\lib\network\networkfile.dart';
+import 'package:C:\flutter\weatherapp\lib\weatherforecast\weatherforecastmodel.dart';
 
 void main() {
   runApp(MaterialApp());
 }
 
-class weathermodel extends StatefulWidget {
-  const weathermodel({Key? key}) : super(key: key);
+class weatherforecast extends StatefulWidget {
+  const weatherforecast({Key? key}) : super(key: key);
 
   @override
-  _weathermodelState createState() => _weathermodelState();
+  _weatherforecastState createState() => _weatherforecastState();
 }
 
-class _weathermodelState extends State<weathermodel> {
+class _weatherforecastState extends State<weatherforecast> {
+  Future<weathermodel> forecastOject;
+  String _cityName = "Bengaluru";
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    forecastOject = Network().getweatherforecast(_cityName: _cityName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
