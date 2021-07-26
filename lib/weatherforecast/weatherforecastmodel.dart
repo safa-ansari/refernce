@@ -1,3 +1,4 @@
+// ignore: camel_case_types
 class weathermodel {
   late Coord coord;
   late List<Weather> weather;
@@ -33,9 +34,6 @@ class weathermodel {
   weathermodel.fromJson(Map<String, dynamic> json) {
     coord = (json['coord'] != null ? new Coord.fromJson(json['coord']) : null)!;
     if (json['weather'] != null) {
-      // ignore: deprecated_member_use
-
-      // ignore: deprecated_member_use
       weather = new List<Weather>.empty();
       json['weather'].forEach((v) {
         weather.add(new Weather.fromJson(v));
@@ -58,27 +56,34 @@ class weathermodel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    // ignore: unnecessary_null_comparison
     if (this.coord != null) {
       data['coord'] = this.coord.toJson();
     }
+    // ignore: unnecessary_null_comparison
     if (this.weather != null) {
       data['weather'] = this.weather.map((v) => v.toJson()).toList();
     }
     data['base'] = this.base;
+    // ignore: unnecessary_null_comparison
     if (this.main != null) {
       data['main'] = this.main.toJson();
     }
     data['visibility'] = this.visibility;
+    // ignore: unnecessary_null_comparison
     if (this.wind != null) {
       data['wind'] = this.wind.toJson();
     }
+    // ignore: unnecessary_null_comparison
     if (this.rain != null) {
       data['rain'] = this.rain.toJson();
     }
+    // ignore: unnecessary_null_comparison
     if (this.clouds != null) {
       data['clouds'] = this.clouds.toJson();
     }
     data['dt'] = this.dt;
+    // ignore: unnecessary_null_comparison
     if (this.sys != null) {
       data['sys'] = this.sys.toJson();
     }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:C:\flutter\weatherapp\lib\network\networkfile.dart';
-import 'package:C:\flutter\weatherapp\lib\weatherforecast\weatherforecastmodel.dart';
+import 'package:weatherapp/network/networkfile.dart';
+import 'package:weatherapp/weatherforecast/weatherforecastmodel.dart';
 
 void main() {
   runApp(MaterialApp());
 }
 
+// ignore: camel_case_types
 class weatherforecast extends StatefulWidget {
   const weatherforecast({Key? key}) : super(key: key);
 
@@ -13,14 +14,19 @@ class weatherforecast extends StatefulWidget {
   _weatherforecastState createState() => _weatherforecastState();
 }
 
+// ignore: camel_case_types
 class _weatherforecastState extends State<weatherforecast> {
-  Future<weathermodel> forecastOject;
-  String _cityName = "Bengaluru";
+  late Future<weathermodel> forecastObject;
+  late String _cityName = "Bengaluru";
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
-    forecastOject = Network().getweatherforecast(_cityName: _cityName);
+    forecastObject = Network().getweatherforecast(cityName: _cityName);
+    forecastObject.then((weather) {
+      print(weather.clouds);
+    });
   }
 
   @override
