@@ -34,7 +34,7 @@ class weathermodel {
   weathermodel.fromJson(Map<String, dynamic> json) {
     coord = (json['coord'] != null ? new Coord.fromJson(json['coord']) : null)!;
     if (json['weather'] != null) {
-      weather = new List<Weather>.empty();
+      weather = [];
       json['weather'].forEach((v) {
         weather.add(new Weather.fromJson(v));
       });
@@ -43,7 +43,7 @@ class weathermodel {
     main = (json['main'] != null ? new Loud.fromJson(json['main']) : null)!;
     visibility = json['visibility'];
     wind = (json['wind'] != null ? new Wind.fromJson(json['wind']) : null)!;
-    rain = (json['rain'] != null ? new Rain.fromJson(json['rain']) : null)!;
+    // rain = json['rain']  ?? new Rain.fromJson(json['rain']) ;
     clouds =
         (json['clouds'] != null ? new Clouds.fromJson(json['clouds']) : null)!;
     dt = json['dt'];

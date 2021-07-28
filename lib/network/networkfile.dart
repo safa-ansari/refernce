@@ -4,8 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:weatherapp/util/forecast_util.dart';
 
 class Network {
-  // Future<weathermodel>
-  getweatherforecast({
+  Future<weathermodel> getweatherforecast({
     required String name,
   }) async {
     var uri = "https://api.openweathermap.org/data/2.5/weather?q=" +
