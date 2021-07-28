@@ -6,7 +6,6 @@ class weathermodel {
   late Loud main;
   late int visibility;
   late Wind wind;
-  late Rain rain;
   late Clouds clouds;
   late int dt;
   late Sys sys;
@@ -22,7 +21,6 @@ class weathermodel {
       required this.main,
       required this.visibility,
       required this.wind,
-      required this.rain,
       required this.clouds,
       required this.dt,
       required this.sys,
@@ -43,7 +41,6 @@ class weathermodel {
     main = (json['main'] != null ? new Loud.fromJson(json['main']) : null)!;
     visibility = json['visibility'];
     wind = (json['wind'] != null ? new Wind.fromJson(json['wind']) : null)!;
-    // rain = json['rain']  ?? new Rain.fromJson(json['rain']) ;
     clouds =
         (json['clouds'] != null ? new Clouds.fromJson(json['clouds']) : null)!;
     dt = json['dt'];
@@ -75,9 +72,6 @@ class weathermodel {
       data['wind'] = this.wind.toJson();
     }
     // ignore: unnecessary_null_comparison
-    if (this.rain != null) {
-      data['rain'] = this.rain.toJson();
-    }
     // ignore: unnecessary_null_comparison
     if (this.clouds != null) {
       data['clouds'] = this.clouds.toJson();
@@ -199,21 +193,6 @@ class Wind {
   }
 }
 
-class Rain {
-  late double d1h;
-
-  Rain({required this.d1h});
-
-  Rain.fromJson(Map<String, dynamic> json) {
-    d1h = json['1h'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['1h'] = this.d1h;
-    return data;
-  }
-}
 
 class Clouds {
   late int all;

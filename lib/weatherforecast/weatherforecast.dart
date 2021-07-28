@@ -18,19 +18,10 @@ class _weatherforecastState extends State<weatherforecast> {
   late Future<weathermodel> forecastObject;
   late String _name = "Bengaluru";
 
-  // init() async {
-  //   Network n = Network();
-  //   await n.getweatherforecast(name: _name);
-  // }
-
   @override
   void initState() {
-    // ignore: todo
-    // TODO: implement initState
     super.initState();
     forecastObject = Network().getweatherforecast(name: _name);
-    // forecastObject.then((weather) {});
-    // init();
   }
 
   @override
