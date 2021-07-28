@@ -12,8 +12,10 @@ class Network {
         "&appid=" +
         Util.appId;
 
-    final response = await http.get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/weather?q=Bengaluru&appid=9c0099bc3550b6697606e4e441e2bce2"));
+    final response = await http.get(Uri.parse(uri));
+
+    // final response = await http.get(Uri.parse(
+    //     "https://api.openweathermap.org/data/2.5/weather?q=Bengaluru&appid=9c0099bc3550b6697606e4e441e2bce2"));
 
     // print(Uri.encodeFull(uri));
     print(response.body);
