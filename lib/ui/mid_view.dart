@@ -5,7 +5,8 @@ Widget midView(AsyncSnapshot<weathermodel> snapshot) {
   // var forecastList = snapshot.data!.sys;
   // throw Exception();
 
-  
+  var formattedDate =
+      new DateTime.fromMillisecondsSinceEpoch(snapshot.data!.dt * 1000);
 
   Container middView = Container(
     child: Column(
